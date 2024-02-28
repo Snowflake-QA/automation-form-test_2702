@@ -13,16 +13,18 @@ public class TestForm {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+        // Configuration.holdBrowserOpen = true;
     }
 
-    @AfterAll
-    //static void afterAll() {Configuration.pageLoadStrategy = "eager";
-   // }
+   @AfterEach
+    void afterEach() {Selenide.closeWebDriver();
+    }
 
     @Test
     void successfulSearchTest() {
         open("/automation-practice-form");
+        Selenide.executeJavaScript("$('#fixedban').remove()");
+        Selenide.executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Snezhana");
         $("#lastName").setValue("Ganzha");
         $("#userEmail").setValue("gan@na.com");
