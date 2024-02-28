@@ -17,9 +17,8 @@ public class TestForm {
     }
 
     @AfterAll
-    static void afterAll() {
-        Configuration.pageLoadStrategy = "eager";
-    }
+    //static void afterAll() {Configuration.pageLoadStrategy = "eager";
+   // }
 
     @Test
     void successfulSearchTest() {
